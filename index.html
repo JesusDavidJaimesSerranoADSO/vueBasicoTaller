@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" type="module"></script>
     <title>taller con vue</title>
 </head>
 <body>
-    
+    <div id="app">
+        <button v-if="arrays == null" @click="crearArray"> crear array</button>
+        <form v-else>
+            <input type="text" placeholder=" agregar objeto" v-model="nuevaTarea">
+            <button @click.prevent="crearObjeto"> agregar </button>
+        </form>
+        <button> eliminar array</button>
+    </div>
 </body>
 </html>
