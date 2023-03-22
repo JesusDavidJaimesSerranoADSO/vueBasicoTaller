@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="app.js" type="module"></script>
     <title>taller con vue</title>
 </head>
 <body>
     <div id="app">
-        <button v-if="arrays == null" @click="crearArray"> crear array</button>
+        <button v-if="arrays == null" @click="crearArray" class="bg-success"> crear array</button>
         <form v-else>
-            <input type="text" placeholder=" agregar objeto" v-model="nuevaTarea">
-            <button @click.prevent="crearObjeto"> agregar </button>
+            <input type="text" placeholder=" agregar objeto" v-model="nuevaTarea" class="d-block my-2">
+            <button @click.prevent="crearObjeto2"> agregar al final </button>
+            <button @click.prevent="crearObjeto1"> agregar al inicio </button>
         </form>
-        <button> eliminar array</button>
+
+        <div v-show="lista" v-for="(items, index) of arrays" class="d-flex justify-content-start bg-info">
+            <div>
+                <button @click="elObjeto(index)" class="btn btn-danger m-2">X</button>
+            </div>
+            <div>
+                <p v-text="items" class="m-3 "></p>
+            </div>
+        </div>
+        <button @click="elArray" class="bg-warning"> eliminar array</button>
     </div>
 </body>
 </html>
